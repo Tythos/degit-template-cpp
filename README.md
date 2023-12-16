@@ -373,6 +373,10 @@ You can also find this article on dev.to (if you're not reading it there already
 
 https://dev.to/tythos/cmake-and-git-submodules-more-advanced-cases-2ka
 
-Lastly, the source for this project can be found under (of course) my own degit template:
+The source for this project can be found under (of course) my own degit template:
 
 https://github.com/Tythos/degit-template-cpp.git
+
+Lastly, looking at the above, it's only marginally related but I do love how GitHub lets you jump right to dependencies when it recognizes they cross-link to other GitHub projects:
+
+![github submodule cross-referencing](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tm3tmsfrwpwlnlmssgdp.png)
