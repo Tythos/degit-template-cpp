@@ -373,9 +373,19 @@ You can also find this article on dev.to (if you're not reading it there already
 
 https://dev.to/tythos/cmake-and-git-submodules-more-advanced-cases-2ka
 
+## Source
+
 The source for this project can be found under (of course) my own degit template:
 
 https://github.com/Tythos/degit-template-cpp.git
+
+This is intended to be used as a degit template, of course, but you should be able to clone and build directly at first if you just want to jump to the end and see something working (so long as you remember to initialize the submodules!). If you *do* degit the repository, again, make sure you set up the submodules, which degit has a habit of removing/ignoring. (If it's too onerous you can always `--depth 1`.)
+
+```sh
+$ degit https://github.com/Tythos/degit-template-cpp mylibrary
+$ cd mylibrary
+$ git init .
+```
 
 Lastly, looking at the above, it's only marginally related but I do love how GitHub lets you jump right to dependencies when it recognizes they cross-link to other GitHub projects:
 
