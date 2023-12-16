@@ -1,10 +1,13 @@
 /**
- * Test entry point
+ * main.cpp
  */
 
-#include <iostream>
+#include "mylibrary.hpp"
 
 int main(int nArgs, char** vArgs) {
-    std::cout << "Farewell, cruel world!" << std::endl;
+    mylibrary::food::Food f;
+    mylibrary::cookie::Cookie c;
+    f.eatMe();
+    c.eatMe();
     return 0;
 }
