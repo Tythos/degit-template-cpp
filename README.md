@@ -365,15 +365,11 @@ There's a lot more we could get into here:
 
 But what I'd like to do at this point to tie a bow on the whole thing, once you've made any customizations you feel necessary, is commit the whole thing as a [degit](https://github.com/Rich-Harris/degit) template. This will help you reuse your template across many happy projects in the future!
 
-If you're interested in a more complex use case, there's a numerical mathematics library I've been porting/updating that uses this pattern to scale very nicely across a wide variety of modules and tests:
-
-https://github.com/Tythos/cuben
-
 You can also find this article on dev.to (if you're not reading it there already!):
 
 https://dev.to/tythos/cmake-and-git-submodules-more-advanced-cases-2ka
 
-## Source
+## The Real Sources
 
 The source for this project can be found under (of course) my own degit template:
 
@@ -387,6 +383,24 @@ $ cd mylibrary
 $ git init .
 ```
 
-Lastly, looking at the above, it's only marginally related but I do love how GitHub lets you jump right to dependencies when it recognizes they cross-link to other GitHub projects:
+_(Looking at the above, it's only marginally related but I do love how GitHub lets you jump right to dependencies when it recognizes they cross-link to other GitHub projects:)_
 
 ![github submodule cross-referencing](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tm3tmsfrwpwlnlmssgdp.png)
+
+If you're interested in a more complex use case, there's a numerical mathematics library I've been porting/updating that uses this pattern to scale very nicely across a wide variety of modules and tests:
+
+https://github.com/Tythos/cuben
+
+Let's use this project as a quick walkthrough of the approach.
+
+![cuben example](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/e4zkxrpexdx2q0mi8hn3.png)
+
+While this is a much bigger project, you may notice there is still only a single header. Opening that header will give you a full definition of the library we are exporting. Individual modules contain implementations within their corresponding namespaces. Individual modules are also isomorphic with test modules under "tests/".
+
+Ignore the "old/" folder for now, which I am using to transcribe a previous implementation. You'll notice there are no other subfolders with primary library source; in Python lingo, this means "no subpackages". I would strongly encourage you to organize packages in this manner around a flat set of source. This helps keep your interface within a single legible file for easy `#include`.
+
+_(This isn't just true for external consumers. Implementations and tests within the project itself also need just a single `#include` to link against the library. Try it, you won't go back. And if you do need subfolders/subpackages, chances are you might be better off creating another separate package, in my experience.)
+
+![cuben cmake](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/lp6jcnec5m2qbyud0yfq.png)
+
+Lastly, take a look at the `CMakeLists.txt` implementation here. Hopefully, you can see how easy it is to scale this approach for complex packages while using a minimum of custom CMake scripting. At a glance, you know exactly what source goes into the library, with only a single additional line for each test program we link.
