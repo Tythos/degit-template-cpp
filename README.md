@@ -349,8 +349,6 @@ mylibrary.lib
 
 Holy cow! That was easy!
 
-## Other Artifacts et Le Fin
-
 There's a lot more we could get into here:
 
 * You might touch a README
@@ -383,9 +381,9 @@ $ cd mylibrary
 $ git init .
 ```
 
-_(Looking at the above, it's only marginally related but I do love how GitHub lets you jump right to dependencies when it recognizes they cross-link to other GitHub projects:)_
+_(I do love how GitHub lets you jump right to dependencies when it recognizes they cross-link to other GitHub projects:)_
 
-![github submodule cross-referencing](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tm3tmsfrwpwlnlmssgdp.png)
+![github submodule cross-referencing](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rp3xkai14c8uk7o3nrdy.png)
 
 If you're interested in a more complex use case, there's a numerical mathematics library I've been porting/updating that uses this pattern to scale very nicely across a wide variety of modules and tests:
 
